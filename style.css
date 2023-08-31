@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    background-image: url("backgorund.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 50px 0;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.campo {
+    border-radius: 30px;
+    padding: 60px 40px;
+    width: 80%;
+    background-color: rgba(144, 131, 73, 0.4);
+}
+
+label, input {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-size: 18px;
+}
+
+.form-control::placeholder {
+    color: #a0a0a0;
+    font-size: 14px;
+}
+
+.form-control:disabled {
+    background-color: #d5d5d5;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+.form-check-new {
+    display: flex;
+    justify-content: end;
+}
+
+.form-check-input-new {
+    margin-right: 10px;
+}
+
+.form-check-label a{
+    text-decoration: none;
+}
+
