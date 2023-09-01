@@ -5,7 +5,7 @@ $(document).ready(function() {
     const inputCidade = document.querySelector("#cidade");
     const inputEstado = document.querySelector("#uf");
     const inputConcordo = document.querySelector("#concordo");
-    let allInputs = document.querySelectorAll("input");    
+    let allInputs = document.querySelectorAll("input");   
 
     // Mask Campos obrigatório 
     $('#telefone').mask('(00) 0000-0000');
@@ -63,31 +63,27 @@ $(document).ready(function() {
     }
 
     // Confirmação de envio 
-    let enviar = document.getElementById("enviar");
-    enviar.addEventListener("click", confirmSubmit);
+    let formulario = document.getElementById("formulario");
+    formulario.addEventListener("submit", confirmSubmit);
     function confirmSubmit(e) {
-        let agree = confirm("Deseja enviar o formulário?");
+        e.preventDefault();
         if(allInputs[0].value, 
-            allInputs[1].value,
-            allInputs[2].value, 
-            allInputs[4].value, 
-            allInputs[5].value, 
-            allInputs[6].value, 
-            allInputs[7].value, 
-            allInputs[8].value, 
-            allInputs[9].value, 
-            allInputs[10].value != "" && inputConcordo.checked == true
-        ) {
-            console.log("tudo cheio");
-            if (agree) {
-                return true ;
-            } else {
-                return false ;
+                allInputs[1].value,
+                allInputs[2].value, 
+                allInputs[4].value, 
+                allInputs[5].value, 
+                allInputs[6].value, 
+                allInputs[7].value, 
+                allInputs[8].value, 
+                allInputs[9].value, 
+                allInputs[10].value !== "" && inputConcordo.checked == true
+            ) {
+                $("#submitModal").modal("show");
+                console.log("Todas infos ok");
+                for(let i=0; i<allInputs.length; i++) {
+                    allInputs[i].value = "";
+                }
             }
-        } else {
-            console.log("vazio");
-            return false;
-        }  
     }
 
 });
