@@ -26,12 +26,24 @@ $(document).ready(function() {
             return response.json();
         })
         .then((data)=> {
-            completar(data);
+            if(data.erro) {
+                $("#errorModal").modal("show");
+                inputRua.value = "";
+                inputBairro.value = "";
+                inputCidade.value = "";
+                inputEstado.value = "";
+                inputCep.value = "";
+
+                inputRua.disabled = true;
+                inputCidade.disabled = true;
+                inputEstado.disabled = true;
+            } else {
+                completar(data);
+            }
         })
         .catch((error)=> {
             $("#errorModal").modal("show");
             console.log(error);
-            
             inputRua.value = "";
             inputBairro.value = "";
             inputCidade.value = "";
